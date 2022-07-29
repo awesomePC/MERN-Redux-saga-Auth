@@ -66,12 +66,4 @@ const loginUser = asyncHandler(async (req, res) => {
   }
 });
 
-const changeAdmin = async (req, res) => {
-  const { userId, admin } = req.body;
-  const oldUser = await User.findById(userId);
-  oldUser.admin = admin;
-  oldUser.save();
-  res.json(oldUser);
-}
-
-export { loginUser, registerUser, changeAdmin };
+export { loginUser, registerUser };
