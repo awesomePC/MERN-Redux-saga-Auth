@@ -8,10 +8,10 @@ import {
   updateContact,
 } from '../controller/contactController.js';
 
-import { protect } from '../middleware/authMiddleware.js';
+import { protect, isAdmin } from '../middleware/authMiddleware.js';
 
 router.route('/').post(protect, createContact);
-router.route('/').get(protect, getContacts);
+router.route('/').get(protect, isAdmin, getContacts);
 router.route('/:id').delete(protect, deleteContact).put(protect, updateContact);
 router.route('/delete').post(protect, deleteMultiContacts);
 

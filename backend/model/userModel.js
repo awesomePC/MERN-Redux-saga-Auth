@@ -6,6 +6,10 @@ const userSchema = mongoose.Schema({
   lastName: String,
   email: String,
   password: String,
+  admin: {
+    type: Boolean,
+    default: false
+  },
   createdAt: {
     type: Date,
     default: new Date(),
